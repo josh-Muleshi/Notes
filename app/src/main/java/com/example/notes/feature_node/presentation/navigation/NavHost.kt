@@ -6,12 +6,13 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.notes.feature_node.presentation.home.HomeScreen
 
 @Composable
 fun MainNavHost(navController: NavHostController){
     NavHost(navController = navController, startDestination =  Screen.HomeScreen.route) {
         composable(route = Screen.HomeScreen.route) {
-            //HomeScreen(navController = navController)
+            HomeScreen(navController = navController)
         }
         composable(
             route = Screen.AddEditNoteScreen.route +

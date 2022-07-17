@@ -13,3 +13,5 @@ val Red = Color(0xE4B6222E)
 val Yellow = Color(0xD5FF9800)
 val Bleu = Color(0xD83F51B5)
 val Purple = Color(0xD2673AB7)
+
+val ButtonColor = Color(0xF0011EBE)
