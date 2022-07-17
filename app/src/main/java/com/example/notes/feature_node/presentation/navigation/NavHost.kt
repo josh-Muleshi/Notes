@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.notes.feature_node.presentation.add_edit_note.AddEditNoteScreen
 import com.example.notes.feature_node.presentation.home.HomeScreen
 
 @Composable
@@ -33,10 +34,10 @@ fun MainNavHost(navController: NavHostController){
             )
         ) {
             val color = it.arguments?.getInt("noteColor") ?: -1
-//            AddEditNoteScreen(
-//                navController = navController,
-//                noteColor = color
-//            )
+            AddEditNoteScreen(
+                navController = navController,
+                noteColor = color
+            )
         }
     }
 }
