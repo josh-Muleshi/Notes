@@ -8,8 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
@@ -32,6 +33,8 @@ import com.example.notes.feature_node.presentation.home.business.HomeViewModel
 import com.example.notes.feature_node.presentation.home.components.NoteItem
 import com.example.notes.feature_node.presentation.navigation.Screen
 import com.example.notes.ui.theme.ButtonColor
+import com.nesyou.staggeredgrid.LazyStaggeredGrid
+import com.nesyou.staggeredgrid.StaggeredCells
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -68,7 +71,7 @@ fun HomeScreen(
                 style = MaterialTheme.typography.h4
             )
             Spacer(modifier = Modifier.height(16.dp))
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
+            LazyStaggeredGrid(cells = StaggeredCells.Adaptive(160.dp)) {
                 items(state.notes) { note ->
                     NoteItem(
                         note = note,
@@ -87,15 +90,15 @@ fun HomeScreen(
                                     message = "Note deleted",
                                     actionLabel = "Undo"
                                 )
-                                if(result == SnackbarResult.ActionPerformed) {
+                                if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(HomeEvent.RestoreNote)
                                 }
                             }
                         }
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
