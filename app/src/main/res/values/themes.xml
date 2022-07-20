@@ -3,6 +3,6 @@
 
     <style name="Theme.Notes" parent="android:Theme.Material.Light.NoActionBar">
         <!-- Status bar color. -->
-        <item name="statusBarBackground">@android:color/secondary_text_dark</item>
+        <item name="android:windowLightStatusBar">@android:color/secondary_text_dark</item>
     </style>
 </resources>
